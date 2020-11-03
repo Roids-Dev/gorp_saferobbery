@@ -12,23 +12,23 @@ Citizen.CreateThread(function()
 end)
 
 local Items = {
-	{item = "pepitadeouro", name = "pepitas de ouro", amountToGive = math.random(1,4)},
-    {item = "relogiovelho", name = "relógios velho", amountToGive = math.random(1,2)},
-    {item = "denteouro", name = "dentes de ouro", amountToGive = math.random(1,4)},
-    {item = "anelrubi", name = "anéis de rubi", amountToGive = math.random(1,4)},
-    {item = "ammo_bullet_repeater", name = "munições de repetição", amountToGive = math.random(1,3)},
-    {item = "ammo_bullet_revolver", name = "munições de repetição", amountToGive = math.random(1,3)},
-    {item = "ammo_bullet_rifle", name = "munições de rifle", amountToGive = math.random(1,3)},
-    {item = "stim", name = "estimulantes equino", amountToGive = math.random(1,3)},
-    {item = "moedaantiga", name = "moedas antiga", amountToGive = math.random(2,5)},
-    {item = "stolenmerch", name = "mercadorias roubada", amountToGive = math.random(2,5)},
-    {item = "moonshineTropical", name = "moonshines tropical", amountToGive = math.random(1,3)},
-    {item = "moonshineMaca", name = "moonshines de maçã", amountToGive = math.random(1,3)},
-    {item = "moonshineGroselha", name = "moonshines de groselha", amountToGive = math.random(1,3)},
-    {item = "consumable_candy_bag", name = "sacos de doces", amountToGive = math.random(2,4)},
-    {item = "horsebrush", name = "escova", amountToGive = 1},
-    {item = "infusaorv", name = "infusão revigorante", amountToGive = 1},
-    {item = "tonicobal", name = "tônico balsâmico", amountToGive = 1}
+	{item = "goldnugget", name = "gold nuggets", amountToGive = math.random(1,4)},
+    {item = "watch_old", name = "old watch", amountToGive = math.random(1,2)},
+    {item = "goldteeth", name = "Gold teeth", amountToGive = math.random(1,4)},
+    {item = "rubyring", name = "Ruby rings", amountToGive = math.random(1,4)},
+    --{item = "ammo_bullet_repeater", name = "Repeater Ammo", amountToGive = math.random(1,3)},
+    --{item = "ammo_bullet_revolver", name = "Revolver Ammo", amountToGive = math.random(1,3)},
+    --{item = "ammo_bullet_rifle", name = "munições de rifle", amountToGive = math.random(1,3)},
+    --{item = "stim", name = "Horse Stimulants", amountToGive = math.random(1,3)},
+    {item = "oldcoin", name = "old coins", amountToGive = math.random(2,5)},
+    {item = "stolenmerch", name = "Stolen Goods", amountToGive = math.random(2,5)},
+    {item = "moonshineTropical", name = "Tropical Moonshine", amountToGive = math.random(1,3)},
+    {item = "moonshineApple", name = "Apple Pie Moonshine", amountToGive = math.random(1,3)},
+    {item = "moonshine", name = "Moonshine", amountToGive = math.random(1,3)},
+    --{item = "consumable_candy_bag", name = "Bag of candy", amountToGive = math.random(2,4)},
+    --{item = "horsebrush", name = "horsebrush", amountToGive = 1},
+    --{item = "infusaorv", name = "infusão revigorante", amountToGive = 1},
+    --{item = "tonicobal", name = "tônico balsâmico", amountToGive = 1}
 }
 
 function payLoot(source)
@@ -55,11 +55,11 @@ AddEventHandler('gorp:robberycomplete', function()
                     VorpInv.subItem(source, "lockpick", 1)
                     VorpInv.addItem(source, FinalLoot, v.amountToGive)
                     LootsToGive = {}
-                    TriggerClientEvent("vorp:TipRight", source, 'Você encontrou '..v.amountToGive..' ' ..v.name, 3000)
+                    TriggerClientEvent("vorp:TipRight", source, 'You found '..v.amountToGive..' ' ..v.name, 3000)
                 end
             end
         else
-        TriggerClientEvent("vorp:TipRight", source, 'Sua gazua quebrou e você não conseguiu abrir', 3000)
+        TriggerClientEvent("vorp:TipRight", source, 'Your lockpick broke!', 3000)
         VorpInv.subItem(source, "lockpick", 1)
     end
 end)

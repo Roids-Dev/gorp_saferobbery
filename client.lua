@@ -64,7 +64,7 @@ AddEventHandler('gorp:saferobbery', function()
 		local safe = DoesObjectOfTypeExistAtCoords(x, y, z, 1.0, GetHashKey(value), true)
 		if safe then
 			TaskStartScenarioInPlace(GetPlayerPed(), GetHashKey('WORLD_HUMAN_CROUCH_INSPECT'), -1, true, false, false, false)
-            exports['progressBars']:startUI(15000, "Violando...")
+            exports['progressBars']:startUI(15000, "Attempting to break in...")
 			Wait(15000)
 			ClearPedTasks(GetPlayerPed())
 			TriggerServerEvent("gorp:robberycomplete")
